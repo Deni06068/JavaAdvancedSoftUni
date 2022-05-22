@@ -41,9 +41,9 @@ public class MaximalSum {
         }
 
         System.out.println("Sum = " + maxSum);
-        for (int i = 0; i < matrixResult.length; i++) {
-            for (int j = 0; j < matrixResult[i].length; j++) {
-                System.out.print(matrixResult[i][j] + " ");
+        for (int[] ints : matrixResult) {
+            for (int anInt : ints) {
+                System.out.print(anInt + " ");
             }
             System.out.println();
         }
