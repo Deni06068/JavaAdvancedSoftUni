@@ -17,27 +17,28 @@ public class MatrixShuffling {
         }
 
         String command = scanner.nextLine();
-        while(!command.equals("END")){
+        while (!command.equals("END")) {
             String[] com = command.split("\\s+");
-            if(com[0].equals("swap")){
-            int firstElementRow = Integer.parseInt(com[1]);
-            int firstElementCol = Integer.parseInt(com[2]);
-            int secondElementRow = Integer.parseInt(com[3]);
-            int secondElementCol = Integer.parseInt(com[4]);
-            if (com[0].equals("swap") && firstElementRow < rows && firstElementCol < cols && secondElementRow < rows && secondElementCol < cols) {
-                String memory = matrix[firstElementRow][firstElementCol];
-                matrix[firstElementRow][firstElementCol] = matrix[secondElementRow][secondElementCol];
-                matrix[secondElementRow][secondElementCol] = memory;
-                for (int r = 0; r < rows; r++) {
-                    for (int c = 0; c < cols; c++) {
-                        System.out.print(matrix[r][c] + " ");
+            if (com[0].equals("swap")) {
+                int firstElementRow = Integer.parseInt(com[1]);
+                int firstElementCol = Integer.parseInt(com[2]);
+                int secondElementRow = Integer.parseInt(com[3]);
+                int secondElementCol = Integer.parseInt(com[4]);
+                if (com[0].equals("swap") && firstElementRow < rows && firstElementCol < cols && secondElementRow < rows && secondElementCol < cols
+                        && firstElementRow >= 0 && firstElementCol >= 0 && secondElementRow >= 0 && secondElementCol >= 0 && com.length == 5) {
+                    String memory = matrix[firstElementRow][firstElementCol];
+                    matrix[firstElementRow][firstElementCol] = matrix[secondElementRow][secondElementCol];
+                    matrix[secondElementRow][secondElementCol] = memory;
+                    for (int r = 0; r < rows; r++) {
+                        for (int c = 0; c < cols; c++) {
+                            System.out.print(matrix[r][c] + " ");
+                        }
+                        System.out.println();
                     }
-                    System.out.println();
+                } else {
+                    System.out.println("Invalid input!");
                 }
-            }else {
-                System.out.println("Invalid input!");
-            }
-            }else {
+            } else {
                 System.out.println("Invalid input!");
             }
             command = scanner.nextLine();
