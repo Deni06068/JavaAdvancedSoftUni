@@ -4,27 +4,27 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class Hotel {
-    public ArrayList<Person> people;
+    public ArrayList<Person> roster;
     public String name;
     public int capacity;
 
     public Hotel(String name, int capacity) {
         this.name = name;
         this.capacity = capacity;
-        this.people = new ArrayList<>();
+        this.roster = new ArrayList<>();
     }
 
     public void add(Person person) {
-        if (people.size() < capacity) {
-            people.add(person);
+        if (roster.size() < capacity) {
+            roster.add(person);
         }
     }
 
     public boolean remove(String name) {
         boolean isRemoved = false;
-        for (Person person : people) {
+        for (Person person : roster) {
             if (person.getName().equals(name)) {
-                people.remove(person);
+                roster.remove(person);
                 isRemoved = true;
                 break;
             }
@@ -33,7 +33,7 @@ public class Hotel {
     }
 
     public Person getPerson(String name, String hometown) {
-        for (Person person : people) {
+        for (Person person : roster) {
             if (person.getName().equals(name) && person.getHometown().equals(hometown)) {
                 return person;
             }
@@ -42,10 +42,10 @@ public class Hotel {
     }
 
     public int getCount() {
-        return people.size();
+        return roster.size();
     }
 
     public String getStatistics() {
-        return "The people in the hotel " + this.name + " are:" + System.lineSeparator() + people.stream().map(person -> person.toString()).collect(Collectors.joining(System.lineSeparator()));
+        return "The people in the hotel " + this.name + " are:" + System.lineSeparator() + roster.stream().map(person -> person.toString()).collect(Collectors.joining(System.lineSeparator()));
     }
 }
